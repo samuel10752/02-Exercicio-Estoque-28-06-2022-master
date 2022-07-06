@@ -1,5 +1,5 @@
 import mysql.connector
-from class_fabricante import *
+from class_fabricante import Fabricante
 
 
 class DBFabricante:
@@ -12,9 +12,9 @@ class DBFabricante:
         )
         self.meu_cursor = self.conexao.cursor()
 
-    def salva_fabricante(self, cod, nome_fabricante):
-        obj_contato = Fabricante(cod, nome_fabricante)
-        comando_sql = f'insert into Fabricante(fabricante)value ("{obj_contato.nome_fabricante}")'
+    def salva_fabricante(self, cod, nome):
+        obj_fabricante = Fabricante(cod, nome)
+        comando_sql = f'insert into Fabricante (nome) value ("{obj_fabricante.nome_frabricante}")'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()
 

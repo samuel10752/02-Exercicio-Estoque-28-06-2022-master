@@ -1,5 +1,4 @@
 import mysql.connector
-from class_fabricante import *
 from class_produto import Produto
 
 class DBEstoque:
