@@ -1,8 +1,7 @@
 import mysql.connector
-from class_fabricante import *
-from class_produto import Produto
+from class_produto import *
 
-class DBEstoque:
+class DBProduto:
     def __init__(self):
         self.conexao = mysql.connector.connect(
             host='localhost',
@@ -12,25 +11,25 @@ class DBEstoque:
         )
         self.meu_cursor = self.conexao.cursor()
 
-    def salva_estoque(self, cod, nome, fabricante, quantidade):
+    def salva_produtos(self, cod, nome, fabricante, quantidade):
         obj_contato = Produto(cod,nome, fabricante, quantidade)
         comando_sql = f'insert into Produtos(nome, fabricante, quantidade)value ("{obj_contato.nome}", "{obj_contato.fabricante}", "{obj_contato.quantidade}")'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()
 
-    def lista_estoque(self):
+    def lista_produtos(self):
         comando_sql = f'select * from Produtos'
         self.meu_cursor.execute(comando_sql)
         lista = self.meu_cursor.fetchall()
         for i in lista:
             print(i)
 
-    def alterar_estoque(self,atributo, valor, cod):
+    def alterar_produtos(self,atributo, valor, cod):
         comando_sql = f'update Produtos set {atributo} = "{valor}" where id = {cod}'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()
 
-    def excluir_estoque(self,cod):
+    def excluir_produto(self,cod):
         comando_sql = f'delete from Produtos where id = "{cod}"'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()
