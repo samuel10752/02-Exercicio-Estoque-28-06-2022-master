@@ -1,4 +1,4 @@
-from class_estoque import*
+from class_estoque_db import*
 from class_compras import*
 from class_vendas import*
 
