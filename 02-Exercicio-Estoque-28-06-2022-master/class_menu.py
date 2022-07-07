@@ -37,11 +37,9 @@ class Menu():
             elif entrada == '3':
                 cod = None
                 fabricante.lista_fabricante()
-                for i in  fabricante:
-                    (i) == fabricante.salva_fabricante
-                    nome = input('Digite o nome do produto') 
-                    quantidade = int(input('Digite a quantidade:'))
-                    produto.salva_produto(cod,nome,quantidade)
+                nome = input('Digite o nome do produto') 
+                quantidade = int(input('Digite a quantidade:'))
+                produto.salva_produto(cod,nome,quantidade)
 
             elif entrada == '4':
                 produto.lista_produto()
