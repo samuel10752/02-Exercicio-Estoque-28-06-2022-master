@@ -14,7 +14,7 @@ class DBFabricante:
 
     def salva_fabricante(self, cod, nome):
         obj_fabricante = Fabricante(cod, nome)
-        comando_sql = f'insert into Fabricante (nome) value ("{obj_fabricante.nome_frabricante}")'
+        comando_sql = f'insert into Fabricante (nome) value ("{obj_fabricante.nome}")'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()
 
