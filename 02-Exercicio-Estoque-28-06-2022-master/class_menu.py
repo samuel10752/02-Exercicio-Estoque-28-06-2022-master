@@ -85,7 +85,7 @@ class Menu():
 
             elif entrada == '12':
 
-                venda.compra_extrato()
+                venda.venda_extrato()
             elif entrada == '0':
                 print('Obrigado por acessar. Volte Sempre.')
                 break

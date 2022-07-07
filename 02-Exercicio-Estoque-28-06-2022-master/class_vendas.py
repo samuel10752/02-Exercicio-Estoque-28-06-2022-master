@@ -38,7 +38,7 @@ class DBVendas:
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()     
 
-    def compra_extrato(self):       
+    def venda_extrato(self):       
         comando_sql = f'select * from Vendas'
         self.meu_cursor.execute(comando_sql)
         lista = self.meu_cursor.fetchall()
