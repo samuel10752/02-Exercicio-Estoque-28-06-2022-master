@@ -34,11 +34,12 @@ class Menu():
             elif entrada == '2':
                 fabricante.lista_fabricante()
 
-            #elif entrada == '3':
-            #    cod = None
-            #    fabricante.lista_fabricante()
-            #    quantidade = int(input('Digite a quantidade:'))
-            #    produto.salva_produto(cod,quantidade)
+            elif entrada == '3':
+                cod = None
+                fabricante.lista_fabricante()
+                nome = input('Digite o nome do produto')
+                quantidade = int(input('Digite a quantidade:'))
+                produto.salva_produto(cod,nome,quantidade)
 
             elif entrada == '4':
                 produto.lista_produto()
@@ -50,7 +51,7 @@ class Menu():
                 fabricante.alterar_fabricante(atributo,valor,cod)
 
             elif entrada == '6':
-                cod = int(input('Informe o código do Fabricante: '))
+                cod = int(input('Informe o código do produtoe: '))
                 valor= input('Entre com o novo nome: ')
                 atributo = 'nome'
                 produto.alterar_produto(atributo,valor,cod)

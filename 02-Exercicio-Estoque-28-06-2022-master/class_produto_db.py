@@ -13,7 +13,7 @@ class DBProduto:
 
     def salva_produto(self, cod, nome,fabricante, quantidade):
         obj_produto = Produto(cod,nome,fabricante,quantidade)
-        comando_sql = f'insert into Produtos(nome)value ("{obj_produto.nome}","{obj_produto.fabricante}","{obj_produto.quantidade}")'
+        comando_sql = f'insert into Produtos(nome, fabricante, quantidade)value ("{obj_produto.nome}","{obj_produto.fabricante}","{obj_produto.quantidade}")'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()
 
