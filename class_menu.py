@@ -36,6 +36,12 @@ class Menu():
                 valor=input('Insira a mudança\n : ')
                 cod=input('Insira o id a ser alterado\n : ')
                 estoque.alterar_tabela(tabela, atributo, valor, cod)
+            elif entrada == '7':
+                tabela=input('Insira o nome da Tabela\n : ')
+                atributo=input('Insira o nome da coluna\n : ')
+                valor=input('quanto deseja comprar\n : ')
+                cod=input('Insira o id a ser alterado\n : ')
+                estoque.alterar_tabela(tabela, atributo, valor, cod)
             elif entrada == '8':
                 estoque.listar_tabelas()
                 tabela = input('Insira o nome da Tabela\n : ')

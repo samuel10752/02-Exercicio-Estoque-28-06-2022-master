@@ -1,6 +1,7 @@
 import mysql.connector
 from class_fabricante import Fabricante
 from class_produto import Produto
+from class_compras import *
 
 
 class Estoque:
@@ -49,3 +50,14 @@ class Estoque:
         comando_sql = f'delete from {tabela} where id = {cod}'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()
+
+    def comprar(self):
+        entrada = input('Cod do Produto:  ')
+        for i in range(len(self.entrada.salvar_produtos)):
+            if entrada == self.entrada.salvar_produtos[i].cod:
+                x=int(input('Quantidade comprada:  '))
+                self.entrada.salvar_produtos[i].quantidade += int(x)
+                self.historico.transacoes.append(f'Compra de {x} unidades do produto: {self.entrada.salvar_produtos[i].nome}')
+                break
+    def extrato(self):
+        print(self.historico.compras_vendas()) 
