@@ -16,12 +16,12 @@ primary key (id)
 );
 
 create table Compra_venda(
-cod int auto_increment,
+id int auto_increment,
 estoque int, # O q tem no estoque
 compra int, # Valor comprado
 venda int,
 final int, # Valor atualizado
-primary key (cod)
+primary key (id)
 );
 
 select * from Produtos;
