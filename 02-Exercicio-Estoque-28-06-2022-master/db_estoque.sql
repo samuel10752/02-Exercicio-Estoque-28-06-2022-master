@@ -15,16 +15,13 @@ nome varchar(70) not null,
 primary key (id)
 );
 
-create table Compras(
-id int auto_increment,
-quantidade varchar(70) not null,
-primary key (id)
-);
-
-create table Vendas(
-id int auto_increment,
-quantidade varchar(70) not null,
-primary key (id)
+create table Compra_venda(
+cod int auto_increment,
+estoque int, # O q tem no estoque
+compra int, # Valor comprado
+venda int,
+final int, # Valor atualizado
+primary key (cod)
 );
 
 select * from Produtos;

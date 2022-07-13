@@ -21,10 +21,14 @@ class Estoque:
         comando_sql = f'insert into Fabricante (nome) value ("{obj_fabricante.nome}")'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()
+        
     def salvar_produtos(self, cod, nome, fabricante, quantidade):
         obj_produto = Produto(cod, nome, fabricante, quantidade)    
         comando_sql = f'insert into Produtos (nome, fabricante, quantidade) value ("{obj_produto.nome}", (select nome from Fabricante where id = {obj_produto.fabricante}), {obj_produto.quantidade});'
+        comando_sql1 = f'insert into Compra_venda (estoque) value (0)'
         self.meu_cursor.execute(comando_sql)
+        self.conexao.commit()
+        self.meu_cursor.execute(comando_sql1) 
         self.conexao.commit()
     #Read
     def listar(self, tabela):
@@ -50,14 +54,4 @@ class Estoque:
         comando_sql = f'delete from {tabela} where id = {cod}'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()
-
-    def comprar(self):
-        entrada = input('Cod do Produto:  ')
-        for i in range(len(self.entrada.salvar_produtos)):
-            if entrada == self.entrada.salvar_produtos[i].cod:
-                x=int(input('Quantidade comprada:  '))
-                self.entrada.salvar_produtos[i].quantidade += int(x)
-                self.historico.transacoes.append(f'Compra de {x} unidades do produto: {self.entrada.salvar_produtos[i].nome}')
-                break
-    def extrato(self):
-        print(self.historico.compras_vendas()) 
+    
