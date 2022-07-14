@@ -25,7 +25,7 @@ class Estoque:
     def salvar_produtos(self, cod, nome, fabricante, quantidade):
         obj_produto = Produto(cod, nome, fabricante, quantidade)    
         comando_sql = f'insert into Produtos (nome, fabricante, quantidade) value ("{obj_produto.nome}", (select nome from Fabricante where id = {obj_produto.fabricante}), {obj_produto.quantidade});'
-        comando_sql1 = f'insert into Compra_venda (estoque) value (0)'
+        comando_sql1 = f'insert into Compra_venda (estoque) value ("{obj_produto.quantidade}")'
         self.meu_cursor.execute(comando_sql)
         self.conexao.commit()
         self.meu_cursor.execute(comando_sql1) 
